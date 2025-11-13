@@ -1,0 +1,26 @@
+/* Adicione estilos personalizados para se destacar */
+body {
+    padding-top: 20px;
+}
+
+#resultado {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#loading {
+    margin-top: 1rem;
+}
+
+#error-message {
+    color: var(--pico-color-red-500, #d32f2f);
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
