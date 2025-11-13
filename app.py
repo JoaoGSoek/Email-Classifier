@@ -2,12 +2,14 @@
 import os
 from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
-import openai
+import google.generativeai as genai
+import json
 import PyPDF2
 
 # Carrega as variáveis de ambiente (sua chave da API)
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+model = genai.GenerativeModel('gemini-2.5-flash-lite')
 
 app = Flask(__name__)
 
@@ -38,23 +40,16 @@ def analisar_email_com_ia(conteudo_email):
     {conteudo_email}
     ---
 
-    Retorne apenas o objeto JSON, sem nenhum texto adicional.
+    Retorne apenas o objeto JSON, sem nenhum texto adicional ou formatação de código.
     Exemplo de retorno: {{"classificacao": "Produtivo", "sugestao_resposta": "Prezado(a), recebemos sua solicitação e nossa equipe já está analisando. Retornaremos em breve."}}
     """
     try:
-        response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "Você é um assistente eficiente de triagem de emails para uma empresa financeira."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.7,
-            response_format={"type": "json_object"} # Força a saída em JSON
-        )
-        # A resposta virá em formato JSON string dentro de 'content'
-        return response.choices[0].message.content
+        response = model.generate_content(prompt)
+        json_response = response.text.strip().replace("```json", "").replace("```", "").strip()
+        json.loads(json_response)
+        return json_response
     except Exception as e:
-        print(f"Erro na API da OpenAI: {e}")
+        print(f"Erro na API do Gemini: {e}")
         return None
 
 # Rota principal que renderiza a página HTML
