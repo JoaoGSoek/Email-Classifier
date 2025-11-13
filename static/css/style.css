@@ -3,6 +3,11 @@ body {
     padding-top: 20px;
 }
 
+form{
+	width: 100%;
+	resize: vertical;
+}
+
 #resultado {
     margin-top: 2rem;
     padding: 1.5rem;
