@@ -4,7 +4,7 @@
 
 Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de desenvolvedor. O objetivo é criar uma solução digital que automatiza a leitura, classificação e sugestão de respostas para emails, otimizando o tempo de equipes que lidam com um alto volume de mensagens diariamente.
 
-🔗 **Acessar a Aplicação:** **[LINK DA SUA APLICAÇÃO NO RENDER AQUI]**
+🔗 **Acessar a Aplicação:** **[[CLIQUE AQUI]](https://email-classifier-lnnr.onrender.com)**
 
 🎥 **Assistir ao Vídeo de Demonstração:** **[LINK DO SEU VÍDEO NO YOUTUBE AQUI]**
 
@@ -25,7 +25,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de
 
 *Substitua a imagem abaixo por um screenshot real da sua aplicação.*
 
-![Screenshot da Aplicação](https://i.imgur.com/example.png "Interface do Classificador de Emails com IA")
+<img width="1863" height="1388" alt="image" src="https://github.com/user-attachments/assets/0c62709e-3ecd-497a-a141-decdc46711b4" />
 
 ---
 
@@ -121,3 +121,4 @@ A estrutura de arquivos foi organizada para manter uma clara separação entre o
     |-- /js
         |-- script.js  # Lógica do frontend e interatividade
 ```
+
