@@ -25,7 +25,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de
 
 *Substitua a imagem abaixo por um screenshot real da sua aplicação.*
 
-<img width="1863" height="1388" alt="image" src="https://github.com/user-attachments/assets/0c62709e-3ecd-497a-a141-decdc46711b4" />
+<img width="1863" height="1388" alt="image" src="https://github.com/user-attachments/assets/cec07c6b-b1b4-4b37-8e8f-57db0d54aa3c" />
 
 ---
 
@@ -121,4 +121,5 @@ A estrutura de arquivos foi organizada para manter uma clara separação entre o
     |-- /js
         |-- script.js  # Lógica do frontend e interatividade
 ```
+
 
