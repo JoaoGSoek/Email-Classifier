@@ -60,7 +60,7 @@ Siga os passos abaixo para configurar e rodar a aplicação em sua máquina.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/JoaoGSoek/Email-Classifier.git
     cd seu-repositorio
     ```
 
@@ -121,5 +121,6 @@ A estrutura de arquivos foi organizada para manter uma clara separação entre o
     |-- /js
         |-- script.js  # Lógica do frontend e interatividade
 ```
+
 
 
