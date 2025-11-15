@@ -1,6 +1,104 @@
 /* Adicione estilos personalizados para se destacar */
 body {
-    padding-top: 20px;
+    /* O padding foi movido para o main-content para um layout de tela cheia */
+}
+
+.app-container {
+    display: flex;
+}
+
+#sidebar {
+	width: 300px;
+	min-height: 100vh;
+	border-right: 1px solid var(--primary);
+	padding: 20px;
+	transition: all 0.3s ease-in-out;
+	flex-shrink: 0; /* Impede que a sidebar encolha */
+}
+
+#sidebar:not(.collapsed){
+	box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)), 0 0 0 var(--outline-width) var(--primary-focus);
+}
+
+#sidebar.collapsed {
+    margin-left: -300px;
+}
+
+#main-content {
+    flex-grow: 1; /* Faz o conteúdo principal ocupar o espaço restante */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+#saved-emails-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#saved-emails-list:empty:before{
+	content: 'Suas analises salvas ficarão aqui!';
+	text-align: center;
+	display: block;
+}
+
+#saved-emails-list li {
+	padding: 10px;
+	cursor: pointer;
+	position: relative; /* Necessário para posicionar o botão de exclusão */
+	display: grid;
+	grid-template-areas:
+			"title class"
+			"date date";
+	border: 1px solid var(--primary);
+	border-radius: var(--border-radius);
+	align-items: center;
+	gap: 10px;
+}
+
+#saved-emails-list li strong {
+	grid-area: title;
+	color: var(--primary);
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#saved-emails-list li span {
+	grid-area: class;
+	font-size: 10px;
+	padding: 2px 8px;
+	background-color: rgba(255 255 255 / 20%);
+	width: fit-content;
+	border-radius: 100vw;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+#saved-emails-list li small {
+	grid-area: date;
+	font-size: 14px;
+}
+
+#saved-emails-list li small:before {
+	content: "\1F4C5";
+}
+
+#saved-emails-list li .delete-btn {
+	position: absolute;
+	bottom: 12px;
+	right: 10px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--pico-color-red-500, #d32f2f);
+	padding: 0;
+	line-height: 1;
+	width: fit-content;
+	justify-self: flex-end;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 700;
 }
 
 form{
@@ -15,6 +113,22 @@ form{
     border-radius: 8px;
 }
 
+#resultado-header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#sugestao-resposta{
+	word-wrap: break-word;
+	white-space: break-spaces;
+}
+
+#copy-btn{
+	width: fit-content;
+	padding: 6px 12px;
+}
+
 #loading {
     margin-top: 1rem;
 }
@@ -27,4 +141,8 @@ form{
 
 .hidden {
     display: none;
+}
+
+.actions {
+    margin-top: 1rem;
 }

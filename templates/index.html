@@ -9,36 +9,51 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <main class="container">
-        <nav>
-            <ul>
-                <li><strong>Classificador de Emails IA</strong></li>
-            </ul>
-        </nav>
-
-        <h1>Automatize sua Caixa de Entrada</h1>
-        <p>Cole o texto de um email ou faça o upload de um arquivo (.txt, .pdf) para classificá-lo e obter uma sugestão de resposta.</p>
-
-        <form id="email-form">
-            <label for="email_texto">Cole o texto do email aqui:</label>
-            <textarea id="email_texto" name="email_texto" rows="10"></textarea>
-
-            <label for="email_arquivo">Ou faça upload de um arquivo:</label>
-            <input type="file" id="email_arquivo" name="email_arquivo" accept=".txt,.pdf">
-
-            <button type="submit" id="submit-btn">Analisar Email</button>
-        </form>
-
-        <div id="resultado" class="hidden">
-            <h2>Resultado da Análise</h2>
-            <p><strong>Classificação:</strong> <span id="classificacao"></span></p>
-            <p><strong>Sugestão de Resposta:</strong></p>
-            <pre><code id="sugestao-resposta"></code></pre>
-        </div>
-
-        <div id="loading" class="hidden" aria-busy="true">Processando...</div>
-        <div id="error-message" class="hidden"></div>
-    </main>
+    <div class="app-container">
+        <aside id="sidebar" class="hidden">
+            <h3>Histórico</h3>
+            <ul id="saved-emails-list"></ul>
+        </aside>
+        <main id="main-content" class="container">
+            <nav>
+                <ul>
+                    <li><button id="toggle-sidebar-btn" class="outline icon-btn" title="Acesse o menu lateral.">☰</button></li>
+                    <li><button id="clear-workspace-btn" class="outline secondary" title="Limpe o campo de texto e o resultado da análise.">Limpar</button></li>
+                    <li><strong>Classificador de Emails IA</strong></li>
+                </ul>
+            </nav>
+    
+            <h1>Automatize sua Caixa de Entrada</h1>
+            <p>Cole o texto de um email ou faça o upload de um arquivo (.txt, .pdf) para classificá-lo e obter uma sugestão de resposta.</p>
+    
+            <form id="email-form">
+                <label for="email_texto">Cole o texto do email aqui:</label>
+                <textarea id="email_texto" name="email_texto" rows="10"></textarea>
+    
+                <label for="email_arquivo">Ou faça upload de um arquivo:</label>
+                <input type="file" id="email_arquivo" name="email_arquivo" accept=".txt,.pdf">
+    
+                <button type="submit" id="submit-btn">Analisar Email</button>
+            </form>
+    
+            <div id="resultado" class="hidden">
+                <h2>Resultado da Análise</h2>
+                <p><strong>Classificação:</strong> <span id="classificacao"></span></p>
+                <p><strong>Título:</strong> <span id="titulo"></span></p>
+                <div id="resultado-header">
+                    <p><strong>Sugestão de Resposta:</strong></p>
+                    <button id="copy-btn" class="outline">Copiar</button>
+                </div>
+                <pre><code id="sugestao-resposta"></code></pre>
+                <div class="actions">
+                    <button id="save-btn" class="hidden">Salvar Análise</button>
+                </div>
+            </div>
+    
+            <div id="loading" class="hidden" aria-busy="true">Processando...</div>
+            <div id="error-message" class="hidden"></div>
+        </main>
+    </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

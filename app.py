@@ -28,9 +28,10 @@ def extrair_texto_pdf(file_stream):
 # Função que chama a IA para classificar e gerar resposta
 def analisar_email_com_ia(conteudo_email):
     prompt = f"""
-    Analise o seguinte texto de um email e retorne um objeto JSON com duas chaves: "classificacao" e "sugestao_resposta".
+    Analise o seguinte texto de um email e retorne um objeto JSON com três chaves: "classificacao", "sugestao_resposta" e "titulo".
 
     As categorias de classificação são: "Produtivo" ou "Improdutivo".
+    O "titulo" deve ser um resumo curto e descritivo do conteúdo do email, com no máximo 5 palavras.
 
     - "Produtivo": Emails que requerem uma ação, como solicitações, dúvidas técnicas ou atualizações de status. A resposta deve ser profissional e direcionada à ação.
     - "Improdutivo": Emails que não requerem ação imediata, como spams, felicitações ou agradecimentos. A resposta deve ser curta e cordial, ou sugerir o arquivamento.
@@ -41,7 +42,7 @@ def analisar_email_com_ia(conteudo_email):
     ---
 
     Retorne apenas o objeto JSON, sem nenhum texto adicional ou formatação de código.
-    Exemplo de retorno: {{"classificacao": "Produtivo", "sugestao_resposta": "Prezado(a), recebemos sua solicitação e nossa equipe já está analisando. Retornaremos em breve."}}
+    Exemplo de retorno: {{"classificacao": "Produtivo", "sugestao_resposta": "Prezado(a), recebemos sua solicitação e nossa equipe já está analisando. Retornaremos em breve.", "titulo": "Consulta sobre status do pedido"}}
     """
     try:
         response = model.generate_content(prompt)
