@@ -6,7 +6,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de
 
 🔗 **Acessar a Aplicação:** **[[CLIQUE AQUI]](https://email-classifier-lnnr.onrender.com)**
 
-🎥 **Assistir ao Vídeo de Demonstração:** **[LINK DO SEU VÍDEO NO YOUTUBE AQUI]**
+🎥 **Assistir ao Vídeo de Demonstração:** **[[CLIQUE AQUI]](https://youtu.be/EPgFxgKHcqo)**
 
 ---
 
@@ -121,6 +121,7 @@ A estrutura de arquivos foi organizada para manter uma clara separação entre o
     |-- /js
         |-- script.js  # Lógica do frontend e interatividade
 ```
+
 
 
 
